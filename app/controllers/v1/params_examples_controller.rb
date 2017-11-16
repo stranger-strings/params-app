@@ -16,4 +16,17 @@ class V1::ParamsExamplesController < ApplicationController
     end
     render json: {message: "Hey your name is #{input_name}", message2: special_message}
   end
+
+  def guess_query_method
+    winning_number = 32
+    input_guess = params["the_users_guess"].to_i
+    if input_guess > winning_number
+      output_message = "Pick lower!"
+    elsif input_guess < winning_number
+      output_message = "Pick higher!"
+    else
+      output_message = "You win!"
+    end
+    render json: {guess: input_guess, message: output_message}
+  end
 end
