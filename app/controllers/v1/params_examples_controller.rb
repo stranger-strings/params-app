@@ -8,6 +8,10 @@ class V1::ParamsExamplesController < ApplicationController
     }
   end
 
+  def url_segment_params_method
+    render json: {message: "hello"}
+  end
+
   def name_method
     input_name = params["query_name"]
     special_message = "Your name sucks."
